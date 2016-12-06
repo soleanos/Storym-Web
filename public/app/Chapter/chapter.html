@@ -1,0 +1,44 @@
+<div ng-include src="'app/Component/header.html'" ></div>
+<!--<div ng-include src="'app/Modales/AjoutChapter/modale.ajoutChapter.html'" ></div>-->
+<!--<div ng-include src="'app/Modales/ModificationChapter/modale.modificationChapter.html'" ></div>-->
+
+
+<div id="chapters">
+
+    <h1> Liste de l'ensemble des chapters </h1>
+
+    <button  ng-click="openAddModale()">Ajouter une chapter</button>
+
+    <div class="table-responsive-vertical shadow-z-1">
+
+        <table id="table" class="table table-hover table-mc-light-blue">
+            <thead>
+            <tr>
+
+                <th>Titre</th>
+                <th>Note</th>
+                <th>Chapitres</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr ng-repeat="chapter in chapters">
+                <td >{{chapter.title}}</td>
+                <td>{{chapter.note}}</td>
+                <td>
+                    <div ng-repeat="chapter in chapter.chapters ">
+                        {{chapter.title}}
+                    </div>
+                </td>
+                <td >
+                    <button  ng-click="openUpdateModale($index)">Modifier</button>
+                    <button  ng-click="DeleteChapter($index)">Supprimer</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+</div>
