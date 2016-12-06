@@ -8,10 +8,10 @@
 
     function config($routeProvider) {
         $routeProvider.
-        when('/personnes', {
-            templateUrl: 'app/Personne/personne.html',
-            controller: 'PersonneController',
-            controllerAs : 'PersonneCtrl'
+        when('/storys', {
+            templateUrl: 'app/Story/story.html',
+            controller: 'StoryController',
+            controllerAs : 'StoryCtrl'
         });
     }
 })();

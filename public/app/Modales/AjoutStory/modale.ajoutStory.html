@@ -1,5 +1,5 @@
 <script type="text/ng-template" id="templateAdd">
-    <div id="target"  ng-init="initModalAdd()" ng-controller="modaleAjoutPersonneController" >
+    <div id="target"  ng-init="initModalAdd()" ng-controller="modaleAjoutStoryController" >
 
         <div layout="row" layout-align="center center">
             <div layout="column">
@@ -7,15 +7,15 @@
 
                 <md-input-container>
                     <label>Nom</label>
-                        <input type="text" ng-model="newPersonne.nom">
+                        <input type="text" ng-model="newStory.nom">
                 </md-input-container>
 
                 <md-input-container >
                     <label>Prénom</label>
-                    <input type="text" ng-model="newPersonne.prenom">
+                    <input type="text" ng-model="newStory.prenom">
                 </md-input-container>
 
-                <md-button class="md-raised md-primary" ng-click="add(newPersonne)">Ajouter</md-button>
+                <md-button class="md-raised md-primary" ng-click="add(newStory)">Ajouter</md-button>
             </div>
         </div>
 

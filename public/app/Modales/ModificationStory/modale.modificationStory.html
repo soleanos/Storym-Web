@@ -1,19 +1,19 @@
 
 <script type="text/ng-template" id="templateUpdate">
-    <div id="target"  ng-init="initModalUpdate()" ng-controller="modaleModifPersonneController" >
+    <div id="target"  ng-init="initModalUpdate()" ng-controller="modaleModifStoryController" >
 
         <div layout="row" layout-align="center center">
             <div layout="column">
-                <h1>Modifier {{personneToUpdate.prenom}} {{personneToUpdate.nom}} </h1>
+                <h1>Modifier {{storyToUpdate.prenom}} {{storyToUpdate.nom}} </h1>
 
                 <md-input-container>
                     <label>Nom</label>
-                    <input type="text" ng-model="personneToUpdate.nom">
+                    <input type="text" ng-model="storyToUpdate.nom">
                 </md-input-container>
 
                 <md-input-container >
                     <label>Prénom</label>
-                    <input type="text" ng-model="personneToUpdate.prenom">
+                    <input type="text" ng-model="storyToUpdate.prenom">
                 </md-input-container>
 
                 <md-button class="md-raised md-primary" ng-click="connect()">modifier</md-button>

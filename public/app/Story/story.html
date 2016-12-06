@@ -1,14 +1,14 @@
 <div ng-include src="'app/Component/header.html'" ></div>
-<div ng-include src="'app/Modales/AjoutPersonne/modale.ajoutPersonne.html'" ></div>
-<div ng-include src="'app/Modales/ModificationPersonne/modale.modificationPersonne.html'" ></div>
+<div ng-include src="'app/Modales/AjoutStory/modale.ajoutStory.html'" ></div>
+<div ng-include src="'app/Modales/ModificationStory/modale.modificationStory.html'" ></div>
 
-<div ng-controller="PersonneController">
+<div ng-controller="StoryController">
 
-    <div id="personnes">
+    <div id="storys">
 
-        <h1> Liste de l'ensemble des personnes </h1>
+        <h1> Liste de l'ensemble des storys </h1>
 
-        <button  ng-click="openAddModale()">Ajouter une personne</button>
+        <button  ng-click="openAddModale()">Ajouter une story</button>
 
         <div class="table-responsive-vertical shadow-z-1">
 
@@ -23,18 +23,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr ng-repeat="personne in personnes  ">
-                            <td >{{personne.id}}</td>
-                            <td >{{personne.nom}}</td>
-                            <td>{{personne.prenom}}</td>
+                        <tr ng-repeat="story in storys  ">
+                            <td >{{story.id}}</td>
+                            <td >{{story.nom}}</td>
+                            <td>{{story.prenom}}</td>
                             <td>
-                                <div ng-repeat="sessionSuivie in personnes.sessions_suivies  ">
+                                <div ng-repeat="sessionSuivie in storys.sessions_suivies  ">
                                     <td >{{sessionSuivie.intitule}}</td>
                                 </div>
                             </td>
                             <td >
                                 <button  ng-click="openUpdateModale($index)">Modifier</button>
-                                <button  ng-click="DeletePersonne($index)">Supprimer</button>
+                                <button  ng-click="DeleteStory($index)">Supprimer</button>
                             </td>
 
                 </tbody>
