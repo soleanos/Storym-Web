@@ -1,0 +1,24 @@
+{
+  "name": "GestiNotes",
+  "version": "0.0.1",
+  "description": "Application de gestion de sessions et personnes ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd public && npm install"
+  },
+  "keywords": [
+    "NodeJS",
+    "AngularJS"
+  ],
+  "author": "Anthony Archambeau",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "body-parser": "latest",
+    "client-http": "0.0.7",
+    "express": "^4.13.4",
+    "express-json": "^1.0.0",
+    "express-session": "^1.13.0"
+  }
+}

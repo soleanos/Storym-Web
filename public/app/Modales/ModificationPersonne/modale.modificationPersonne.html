@@ -1,0 +1,24 @@
+
+<script type="text/ng-template" id="templateUpdate">
+    <div id="target"  ng-init="initModalUpdate()" ng-controller="modaleModifPersonneController" >
+
+        <div layout="row" layout-align="center center">
+            <div layout="column">
+                <h1>Modifier {{personneToUpdate.prenom}} {{personneToUpdate.nom}} </h1>
+
+                <md-input-container>
+                    <label>Nom</label>
+                    <input type="text" ng-model="personneToUpdate.nom">
+                </md-input-container>
+
+                <md-input-container >
+                    <label>Prénom</label>
+                    <input type="text" ng-model="personneToUpdate.prenom">
+                </md-input-container>
+
+                <md-button class="md-raised md-primary" ng-click="connect()">modifier</md-button>
+
+            </div>
+        </div>
+    </div>
+</script>

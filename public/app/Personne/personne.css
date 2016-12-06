@@ -1,0 +1,13 @@
+
+body {
+  background-color: #f5f5f5;
+}
+
+#personnes {
+  margin: 20px auto;
+  max-width: 960px;
+}
+
+#personnes h1 {
+  text-align: center;
+}

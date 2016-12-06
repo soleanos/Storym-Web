@@ -1,0 +1,46 @@
+<div ng-include src="'app/Component/header.html'" ></div>
+<div ng-include src="'app/Modales/AjoutPersonne/modale.ajoutPersonne.html'" ></div>
+<div ng-include src="'app/Modales/ModificationPersonne/modale.modificationPersonne.html'" ></div>
+
+<div ng-controller="PersonneController">
+
+    <div id="personnes">
+
+        <h1> Liste de l'ensemble des personnes </h1>
+
+        <button  ng-click="openAddModale()">Ajouter une personne</button>
+
+        <div class="table-responsive-vertical shadow-z-1">
+
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Sessions</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr ng-repeat="personne in personnes  ">
+                            <td >{{personne.id}}</td>
+                            <td >{{personne.nom}}</td>
+                            <td>{{personne.prenom}}</td>
+                            <td>
+                                <div ng-repeat="sessionSuivie in personnes.sessions_suivies  ">
+                                    <td >{{sessionSuivie.intitule}}</td>
+                                </div>
+                            </td>
+                            <td >
+                                <button  ng-click="openUpdateModale($index)">Modifier</button>
+                                <button  ng-click="DeletePersonne($index)">Supprimer</button>
+                            </td>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
