@@ -2,7 +2,6 @@
 <div ng-include src="'app/Modales/AjoutStory/modale.ajoutStory.html'" ></div>
 <div ng-include src="'app/Modales/ModificationStory/modale.modificationStory.html'" ></div>
 
-<div ng-controller="StoryController">
 
     <div id="storys">
 
@@ -15,21 +14,20 @@
             <table id="table" class="table table-hover table-mc-light-blue">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nom</th>
-                        <th>Prenom</th>
-                        <th>Sessions</th>
+
+                        <th>Titre</th>
+                        <th>Note</th>
+                        <th>Chapitres</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                         <tr ng-repeat="story in storys  ">
-                            <td >{{story.id}}</td>
-                            <td >{{story.nom}}</td>
-                            <td>{{story.prenom}}</td>
+                            <td >{{story.title}}</td>
+                            <td>{{story.note}}</td>
                             <td>
-                                <div ng-repeat="sessionSuivie in storys.sessions_suivies  ">
-                                    <td >{{sessionSuivie.intitule}}</td>
+                                <div ng-repeat="chapter in storys.chapters  ">
+                                    <td >{{chapter.title}}</td>
                                 </div>
                             </td>
                             <td >
@@ -41,6 +39,6 @@
             </table>
         </div>
 
-    </div>
+
 
 </div>

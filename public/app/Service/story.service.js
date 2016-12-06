@@ -18,7 +18,8 @@
         };
 
         function getStorys() {
-            return $resource("http://localhost:2403/story").query();
+            //return $resource("http://localhost:2403/story").query();
+            return $http.get('http://localhost:2403/story')
         }
 
         function getStory(lienStory) {
@@ -34,7 +35,7 @@
         }
 
         function removeStory(story) {
-            $resource('http://localhost:2403/story').remove(story);
+            $resource('http://localhost:2403/story').remove(story.id);
         }
         
     }
