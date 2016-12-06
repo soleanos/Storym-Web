@@ -6,43 +6,34 @@
         .module('Notes')
         .controller('StoryController', StoryController);
 
-    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceSession'];
+    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceSession','ServiceChapter'];
 
-    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceSession) {
+    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceSession,ServiceChapter) {
 
         $scope.storys =  [];
 
         ServiceStory.getStorys().success(function (allStorys) {
 
-                for  (var indiceStory in allStorys){
+            for  (var indiceStory in allStorys){
 
-                    var story = allStorys[indiceStory];
-                    console.log(story);
+                var story = allStorys[indiceStory];
 
-                //  // // Je verifie que la ligne de resultat est bien un lien en string et non pas un true ou un $promise{..}
-                //  if(typeof lienStory == 'object'){
-                //      console.log(lienStory)
-                //
-                //     //  ServiceStory.getStory(lienStory).$promise.then(function (story) {
-                //     //     var SessionsLewList = [];
-                //     //     for(var indiceSession in story.sessions_suivies){
-                //     //         var lienSession = story.sessions_suivies[indiceSession];
-                //     //
-                //     //         ServiceSession.getSession(lienSession).$promise.then(function (session) {
-                //     //             SessionsLewList.push(session);
-                //     //         });
-                //     //
-                //     //     }
-                //     //     story.sessions_suivies = SessionsLewList;
-                //     //     $scope.storys.push(story);
-                //     // });
-                //  }
+                var chapterList = [];
+                    for(var indiceChapitre in story.chapters){
+                        var idChapitre = story.chapters[indiceChapitre];
 
-                    $scope.storys.push(story);
+                        ServiceChapter.getChapter(idChapitre).$promise.then(function (chapter) {
+                            chapterList.push(chapter);
+                        });
+                    }
+
+                story.chapters = chapterList;
+                $scope.storys.push(story);
+
+                console.log($scope.storys)
             }
-        }
 
-         );
+        });
 
         $scope.openUpdateModale = function (index) {
            $rootScope.dialog = ngDialog.open({ template: 'templateUpdate' });
