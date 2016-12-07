@@ -16,7 +16,6 @@
 
                 ServiceChapter.getChapters().success(function (allChapters) {
                    $scope.allChapters = allChapters;
-                    console.log($scope.allChapters)
                 });
 
                 $scope.showAddChapter = function(){
@@ -29,12 +28,9 @@
 
                 $scope.updateStory = function(){
                     for (var chapterSelected in $scope.data.chaptersSelected) {
-                        console.log($scope.data.chaptersSelected[chapterSelected])
                         $scope.storyToUpdate.chapters.push($scope.data.chaptersSelected[chapterSelected])
-                        console.log($scope.storyToUpdate.chapters)
                     }
                 }
-
             };
     }
 })();
