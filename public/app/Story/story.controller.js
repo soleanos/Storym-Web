@@ -6,9 +6,9 @@
         .module('Notes')
         .controller('StoryController', StoryController);
 
-    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceSession','ServiceChapter'];
+    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter'];
 
-    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceSession,ServiceChapter) {
+    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter) {
 
         $scope.storys =  [];
         var storyList = [];
