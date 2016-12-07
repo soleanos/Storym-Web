@@ -31,7 +31,7 @@
             }
 
             $scope.storys = storyList;
-
+            console.log($scope.storys)
         });
 
         $scope.openUpdateModale = function (story) {
@@ -42,8 +42,6 @@
         $scope.openAddModale = function () {
            $rootScope.dialog = ngDialog.open({ template: 'templateAdd' });
         };
-
-
 
     }
 })();

@@ -18,7 +18,7 @@
         };
 
         function getStorys() {
-            return $http.get('http://localhost:2403/story')
+            return $http.get('http://localhost:2403/story').then()
         }
 
         function getStory(lienStory) {

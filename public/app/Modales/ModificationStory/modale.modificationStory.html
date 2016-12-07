@@ -47,7 +47,7 @@
                     <label for="multipleSelect"> Ajouter chapitre(s) </label>
 
                     <md-input-container >
-                        <select ng-options="chapter.id as chapter.title for chapter in allChapters"
+                        <select ng-options="chapter as chapter.title for chapter in allChapters"
                                 name="multipleSelect" id="multipleSelect" ng-model="data.chaptersSelected" multiple ng-change="updateStory()">
                         </select>
                     </md-input-container>

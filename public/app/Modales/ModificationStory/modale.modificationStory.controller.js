@@ -11,18 +11,12 @@
     function modaleModifStoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter) {
             $scope.initModalUpdate = function(){
                 $scope.addChapterClick == false;
-                // var lienStory = "http://localhost:8008/api/storys/"+($rootScope.indexGlobal+1)
-                //
-                // ServiceStory.getStory(lienStory).$promise.then(function (story) {
-                //     $scope.storyToUpdate = story;
-                //
-                // });
 
                 $scope.storyToUpdate = $rootScope.selectedStory;
+
                 ServiceChapter.getChapters().success(function (allChapters) {
-
                    $scope.allChapters = allChapters;
-
+                    console.log($scope.allChapters)
                 });
 
                 $scope.showAddChapter = function(){
@@ -34,15 +28,11 @@
                 }
 
                 $scope.updateStory = function(){
-
-                    var secondeStory = [];
-                    secondeStory= $scope.storyToUpdate;
-
                     for (var chapterSelected in $scope.data.chaptersSelected) {
-                        secondeStory.chapters.push(chapterSelected)
+                        console.log($scope.data.chaptersSelected[chapterSelected])
+                        $scope.storyToUpdate.chapters.push($scope.data.chaptersSelected[chapterSelected])
+                        console.log($scope.storyToUpdate.chapters)
                     }
-
-                    console.log(secondeStory)
                 }
 
             };
