@@ -18,7 +18,6 @@
         };
 
         function getStorys() {
-            //return $resource("http://localhost:2403/story").query();
             return $http.get('http://localhost:2403/story')
         }
 
