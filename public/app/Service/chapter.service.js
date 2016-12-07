@@ -20,8 +20,9 @@
             return $http.get('http://localhost:2403/chapter')
         }
 
-        function getChapter(lienChapter) {
-            return $resource("http://localhost:2403/chapter/"+lienChapter).get();
+        function getChapter(id) {
+            // console.log("id :  ----   "+id)
+            return $resource("http://localhost:2403/chapter/"+id).get();
         }
 
         function updateChapter(chapter) {

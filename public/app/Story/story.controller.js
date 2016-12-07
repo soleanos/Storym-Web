@@ -11,33 +11,32 @@
     function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceSession,ServiceChapter) {
 
         $scope.storys =  [];
+        var storyList = [];
 
         ServiceStory.getStorys().success(function (allStorys) {
-
+            var chapterList = [];
             for  (var indiceStory in allStorys){
-
                 var story = allStorys[indiceStory];
 
-                var chapterList = [];
-                    for(var indiceChapitre in story.chapters){
-                        var idChapitre = story.chapters[indiceChapitre];
+                for(var indiceChapitre in story.chapters){
+                   var idChapitre = story.chapters[indiceChapitre];
 
-                        ServiceChapter.getChapter(idChapitre).$promise.then(function (chapter) {
-                            chapterList.push(chapter);
-                        });
-                    }
+                    ServiceChapter.getChapter(idChapitre).$promise.then(function (chapter) {
+                        chapterList.push(chapter);
+                    });
+                }
 
-                story.chapters = chapterList;
-                $scope.storys.push(story);
-
-                console.log($scope.storys)
+                 story.chapters = chapterList;
+                 storyList.push(story);
             }
+
+            $scope.storys = storyList;
 
         });
 
-        $scope.openUpdateModale = function (index) {
+        $scope.openUpdateModale = function (story) {
            $rootScope.dialog = ngDialog.open({ template: 'templateUpdate' });
-           $rootScope.indexGlobal = index;
+           $rootScope.selectedStory = story;
         };
 
         $scope.openAddModale = function () {

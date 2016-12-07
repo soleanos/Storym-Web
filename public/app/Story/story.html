@@ -5,7 +5,7 @@
 
     <div id="storys">
 
-        <h1> Liste de l'ensemble des storys </h1>
+        <!--<h1> Liste de l'ensemble des storys </h1>-->
 
         <button  ng-click="openAddModale()">Ajouter une story</button>
 
@@ -21,20 +21,20 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody >
-                        <tr ng-repeat="story in storys">
-                            <td >{{story.title}}</td>
-                            <td>{{story.note}}</td>
-                            <td>
-                                <div ng-repeat="chapter in story.chapters ">
-                                    {{chapter.title}}
-                                </div>
-                            </td>
-                            <td >
-                                <button  ng-click="openUpdateModale($index)">Modifier</button>
-                                <button  ng-click="DeleteStory($index)">Supprimer</button>
-                            </td>
-                        </tr>
+                <tbody ng-repeat="story in storys">
+                   <tr>
+                        <td >{{story.title}}</td>
+                        <td>{{story.note}}</td>
+                        <td>
+                            <div ng-repeat="chapter in story.chapters ">
+                                {{chapter.title}}
+                            </div>
+                        </td>
+                        <td >
+                            <button  ng-click="openUpdateModale(story)">Modifier</button>
+                            <button  ng-click="DeleteStory($index)">Supprimer</button>
+                        </td>
+                   </tr>
                 </tbody>
             </table>
         </div>
