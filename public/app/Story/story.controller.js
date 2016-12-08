@@ -13,6 +13,12 @@
         $scope.storys =  [];
         var storyList = [];
 
+        var yay = ServiceStory.test().then(function (allStorys) {
+            $scope.storys = allStorys;
+        })
+
+
+
         ServiceStory.getStorys().success(function (allStorys) {
             var chapterList = [];
             for  (var indiceStory in allStorys){
@@ -21,17 +27,17 @@
                 for(var indiceChapitre in story.chapters){
                    var idChapitre = story.chapters[indiceChapitre];
 
-                    ServiceChapter.getChapter(idChapitre).$promise.then(function (chapter) {
-                        chapterList.push(chapter);
-                    });
+                    // ServiceChapter.getChapter(idChapitre).$promise.then(function (chapter) {
+                    //     chapterList.push(chapter);
+                    // });
                 }
 
                  story.chapters = chapterList;
                  storyList.push(story);
             }
 
-            $scope.storys = storyList;
-            console.log($scope.storys)
+            // $scope.storys = storyList;
+            // console.log($scope.storys)
         });
 
         $scope.openUpdateModale = function (story) {

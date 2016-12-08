@@ -13,8 +13,15 @@
             getChapters : getChapters,
             updateChapter : updateChapter,
             createChapter : createChapter,
-            removeChapter : removeChapter
+            removeChapter : removeChapter,
+            castStoryChapter : castStoryChapter
         };
+
+        function castStoryChapter(idChapitre) {
+               return getChapter(idChapitre).$promise.then(function (chapter) {
+                    return chapter;
+               });
+        }
 
         function getChapters() {
             return $http.get('http://localhost:2403/chapter')
@@ -22,7 +29,9 @@
 
         function getChapter(id) {
             // console.log("id :  ----   "+id)
+            // return $resource("http://localhost:2403/chapter/"+id).get();
             return $resource("http://localhost:2403/chapter/"+id).get();
+
         }
 
         function updateChapter(chapter) {
