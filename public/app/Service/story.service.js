@@ -21,7 +21,7 @@
 
             // Get all storys without casted chapters ( only id )
 
-            var getBasicStorys = $http.get('http://localhost:2403/story').then(
+            var getBasicStories = $http.get('http://localhost:2403/story').then(
                 function successCallback(response) {
                 return response;
             }, function errorCallback(error) {
@@ -30,43 +30,39 @@
 
             // Return all stories with an array of chapter objects
 
-            return getBasicStorys.then(
+            return getBasicStories.then(
                 function successCallback(response) {
-                    var allStory = [];
+                    var allStories = [];
                     var chapterList = [];
 
                     for  (var indiceStory in response.data){
                         var story = response.data[indiceStory];
                         var newStory = getStory(story.id).success(function (maStory) {
-                            allStory.push(maStory)
+                            allStories.push(maStory)
                         })
                     }
-
-                    response = allStory
+                    response = allStories
                     return response
-
+                    
                 }, function errorCallback(error) {
                      console.log(error)
                 }
-
             );
-
         }
 
         function getStory(id) {
             return $http.get("http://localhost:2403/story/"+id).success(
                  function successCallback(response) {
                     var chapterList =  [];
-                    for(var indiceChapitre in response.chapters){
-                        var idChapitre = response.chapters[indiceChapitre];
+                    for(var indiceChapter in response.chapters){
+                        var idChapter = response.chapters[indiceChapter];
 
-                        var test = ServiceChapter.castStoryChapter(idChapitre);
+                        var chapter = ServiceChapter.castStoryChapter(idChapter);
 
-                        test.then(function(data) {
+                        chapter.then(function(data) {
                                 chapterList.push(data)
                         });
                     }
-
                      response.chapters = chapterList;
                      return response;
                 }
