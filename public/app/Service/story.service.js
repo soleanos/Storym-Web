@@ -11,22 +11,26 @@
 
         return {
             getStory : getStory,
-            getStorys : getStorys,
+            getStories : getStories,
             updateStory : updateStory,
             createStory : createStory,
             removeStory : removeStory,
-            test:test
         };
 
-        function test() {
-            var p1 = $http.get('http://localhost:2403/story').then(
+        function getStories() {
+
+            // Get all storys without casted chapters ( only id )
+
+            var getBasicStorys = $http.get('http://localhost:2403/story').then(
                 function successCallback(response) {
                 return response;
             }, function errorCallback(error) {
-                // console.log(error)
+                console.log(error)
             })
 
-            return p1.then(
+            // Return all stories with an array of chapter objects
+
+            return getBasicStorys.then(
                 function successCallback(response) {
                     var allStory = [];
                     var chapterList = [];
@@ -47,11 +51,6 @@
 
             );
 
-
-        }
-
-        function getStorys() {
-            return $http.get('http://localhost:2403/story')
         }
 
         function getStory(id) {

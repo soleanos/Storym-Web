@@ -17,6 +17,8 @@
             castStoryChapter : castStoryChapter
         };
 
+        // castStoryChapter take an id parameter en return chapter object
+
         function castStoryChapter(idChapitre) {
                return getChapter(idChapitre).$promise.then(function (chapter) {
                     return chapter;
@@ -28,10 +30,7 @@
         }
 
         function getChapter(id) {
-            // console.log("id :  ----   "+id)
-            // return $resource("http://localhost:2403/chapter/"+id).get();
             return $resource("http://localhost:2403/chapter/"+id).get();
-
         }
 
         function updateChapter(chapter) {
