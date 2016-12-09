@@ -13,7 +13,8 @@
             'ngResource',
             'ngDialog',
             'ngMaterial',
-            'ngMdIcons'
+            'ngMdIcons',
+
         ])
         .config(config)
 

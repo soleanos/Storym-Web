@@ -50,7 +50,7 @@
                 }
 
                 $scope.updateStory = function(){
-                    console.log("Selection d'un chapitre");
+                    //console.log("Selection d'un chapitre");
                 }
 
             };

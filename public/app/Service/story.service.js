@@ -18,7 +18,6 @@
         };
 
         function getStories() {
-
             // Get all storys without casted chapters ( only id )
 
             var getBasicStories = $http.get('http://localhost:2403/story').then(
