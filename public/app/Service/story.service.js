@@ -43,7 +43,7 @@
                     }
                     response = allStories
                     return response
-                    
+
                 }, function errorCallback(error) {
                      console.log(error)
                 }
