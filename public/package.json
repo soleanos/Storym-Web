@@ -10,18 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "angular": "*",
-    "angular-animate": "^1.5.5",
-    "angular-aria": "^1.5.5",
-    "angular-material": "^1.1.0-rc4-master-06e7e99",
-    "angular-material-icons": "^0.7.0",
-    "angular-messages": "*",
-    "angular-resource": "*",
-    "angular-route": "*",
-    "bootstrap": "*",
-    "bootstrap-tagsinput": "*",
-    "font-awesome": "*",
-    "jquery": "*",
-    "ng-dialog": "*",
-    "underscore":"*"
+    "angular-animate": "latest",
+    "angular-aria": "latest",
+    "angular-material": "latest",
+    "angular-material-icons": "latest",
+    "angular-messages": "latest",
+    "angular-resource": "latest",
+    "angular-route": "latest",
+    "bootstrap": "latest",
+    "bootstrap-tagsinput": "latest",
+    "font-awesome": "latest",
+    "jquery": "latest",
+    "ng-dialog": "latest",
+    "underscore":"latest"
   }
 }
