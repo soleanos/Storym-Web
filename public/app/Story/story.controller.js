@@ -6,9 +6,9 @@
         .module('Notes')
         .controller('StoryController', StoryController);
 
-    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter'];
+    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter','_'];
 
-    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter) {
+    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_) {
 
         ServiceStory.getStories().then(function (allStories) {
             $scope.stories = allStories;
@@ -18,6 +18,7 @@
            $rootScope.dialog = ngDialog.open({ template: 'templateUpdate' });
            $rootScope.selectedStory = story;
         };
+
 
         $scope.openAddModale = function () {
            $rootScope.dialog = ngDialog.open({ template: 'templateAdd' });

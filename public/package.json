@@ -21,6 +21,7 @@
     "bootstrap-tagsinput": "*",
     "font-awesome": "*",
     "jquery": "*",
-    "ng-dialog": "*"
+    "ng-dialog": "*",
+    "underscore":"*"
   }
 }
