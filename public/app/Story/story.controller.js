@@ -10,6 +10,8 @@
 
     function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_) {
 
+        $rootScope.currentNavItem = 'storys';
+
         ServiceStory.getStories().then(function (allStories) {
             $scope.stories = allStories;
         })

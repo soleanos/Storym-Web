@@ -19,7 +19,7 @@
                  function updateAllChapters(){
 
                     ServiceChapter.getChapters().success(function (allChapters) {
-                        $scope.allChapters = allChapters;
+                        //$scope.allChapters = allChapters;
                         var filtered = allChapters;
 
                         for (var indiceCapterInitial  in $rootScope.selectedStory.chapters) {
