@@ -1,7 +1,7 @@
 
 (function () {
     angular
-        .module('Notes')
+        .module('Storym')
         .config(config);
 
     config.$inject = ['$routeProvider'];

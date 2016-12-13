@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('Notes')
+        .module('Storym')
         .controller('StoryController', StoryController);
 
     StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceSession','ServicePage'];

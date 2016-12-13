@@ -6,14 +6,13 @@
 
     'use strict';
 
-
     var underscore = angular.module('underscore', []);
     underscore.factory('_', function() {
         return window._; //Underscore should be loaded on the page
     });
 
     angular
-        .module('Notes', [
+        .module('Storym', [
             'ngRoute',
             'ngMessages',
             'ngResource',
@@ -33,5 +32,6 @@
        delete $httpProvider.defaults.headers.common['X-Requested-With'];
         $locationProvider.hashPrefix('');
     }
+
 })();
 

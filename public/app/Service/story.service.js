@@ -2,7 +2,7 @@
 (function () {
  'use strict';
     angular
-        .module('Notes')
+        .module('Storym')
         .factory('ServiceStory',ServiceStory);
 
     ServiceStory.$inject = ['$resource','$rootScope','$http','ServiceChapter'];
@@ -69,15 +69,15 @@
         }
 
         function updateStory(story) {
-                $resource('90.105.169.31:666/story').save(story);
+                $resource('http://90.105.169.31:666/story/'+story.id).save(story);
         }
 
         function createStory(story) {
-           $resource('90.105.169.31:666/story').save(story);
+           $resource('http://90.105.169.31:666/story').save(story);
         }
 
         function removeStory(story) {
-            $resource('90.105.169.31:666/story').remove(story.id);
+            $resource('http://90.105.169.31:666/story/'+story.id).remove();
         }
         
     }

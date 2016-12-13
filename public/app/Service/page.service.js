@@ -1,7 +1,7 @@
 (function () {
  'use strict';
     angular
-        .module('Notes')
+        .module('Storym')
         .factory('ServicePage',ServicePage);
 
    ServicePage.$inject = ['$resource','$rootScope'];

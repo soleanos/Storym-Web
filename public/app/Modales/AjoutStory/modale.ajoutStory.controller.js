@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('Notes')
+        .module('Storym')
         .controller('modaleAjoutStoryController', modaleAjoutStoryController);
 
     modaleAjoutStoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','$route'];
@@ -18,14 +18,8 @@
             $scope.add = function(newStory){
                 if(newStory){
                     ServiceStory.createStory(newStory)
-                    console.log(newStory);
-//                    $route.reload();
-
+                    //$route.reload();
                 }
-            };
-
-            $scope.test = function(newStory){
-                alert("mdr");
             };
 
     }
