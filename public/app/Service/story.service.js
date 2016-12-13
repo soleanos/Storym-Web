@@ -20,7 +20,7 @@
         function getStories() {
             // Get all storys without casted chapters ( only id )
 
-            var getBasicStories = $http.get('http://localhost:2403/story').then(
+            var getBasicStories = $http.get('http://90.105.169.31:666/story').then(
                 function successCallback(response) {
                 return response;
             }, function errorCallback(error) {
@@ -50,7 +50,7 @@
         }
 
         function getStory(id) {
-            return $http.get("http://localhost:2403/story/"+id).success(
+            return $http.get("http://90.105.169.31:666/story/"+id).success(
                  function successCallback(response) {
                     var chapterList =  [];
                     for(var indiceChapter in response.chapters){
@@ -69,15 +69,15 @@
         }
 
         function updateStory(story) {
-                $resource('http://localhost:2403/story').save(story);
+                $resource('90.105.169.31:666/story').save(story);
         }
 
         function createStory(story) {
-           $resource('http://localhost:2403/story').save(story);
+           $resource('90.105.169.31:666/story').save(story);
         }
 
         function removeStory(story) {
-            $resource('http://localhost:2403/story').remove(story.id);
+            $resource('90.105.169.31:666/story').remove(story.id);
         }
         
     }

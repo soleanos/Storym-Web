@@ -26,23 +26,23 @@
         }
 
         function getChapters() {
-            return $http.get('http://localhost:2403/chapter')
+            return $http.get('http://90.105.169.31:666/chapter')
         }
 
         function getChapter(id) {
-            return $resource("http://localhost:2403/chapter/"+id).get();
+            return $resource("http://90.105.169.31:666/chapter/"+id).get();
         }
 
         function updateChapter(chapter) {
-            $resource('http://localhost:2403/chapter').save(chapter);
+            $resource('http://90.105.169.31:666/chapter/'+chapter.id).save(chapter);
         }
 
         function createChapter(chapter) {
-            $resource('http://localhost:2403/chapter').save(chapter);
+            $resource('http://90.105.169.31:666/chapter').save(chapter);
         }
 
         function removeChapter(chapter) {
-            $resource('http://localhost:2403/chapter').remove(chapter.id);
+            $resource('http://90.105.169.31:666/chapter/'+chapter.id).remove();
         }
 
     }
