@@ -1,0 +1,34 @@
+{
+  "name": "Storym",
+  "description": "Application de création d'histoires intéractives",
+  "main": "index.js",
+  "authors": [
+    "Anthony ARCHAMBEAU"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "AngularJS"
+  ],
+  "homepage": "https://github.com/soleanos/Storym-Web",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "^1.1.1",
+    "angular-material-icons": "*",
+    "angular-route": "*",
+    "angular-resource": "*",
+    "underscore": "*",
+    "ng-dialog": "*",
+    "bootstrap": "*",
+    "font-awesome": "*"
+  },
+  "resolutions": {
+    "angular": "1.6.0"
+  }
+}

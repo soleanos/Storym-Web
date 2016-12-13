@@ -1,11 +1,11 @@
 {
   "name": "Storym",
-  "version": "0.0.2",
-  "description": "Application de création d'histoires intéractives ",
+  "version": "0.0.1",
+  "description": "Application de création d'histoires intéractives",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd public && npm install"
+    "postinstall": "cd public && bower install"
   },
   "keywords": [
     "NodeJS",
@@ -14,11 +14,7 @@
   "author": "Anthony Archambeau",
   "license": "ISC",
   "dependencies": {
-    "async": "latest",
-    "body-parser": "latest",
-    "client-http": "latest",
-    "express": "^latest",
-    "express-json": "latest",
-    "express-session": "^latest"
+    "express": "^4.13.4",
+	"body-parser": "*"
   }
 }

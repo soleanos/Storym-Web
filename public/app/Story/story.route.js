@@ -8,7 +8,7 @@
 
     function config($routeProvider) {
         $routeProvider.
-        when('/storys', {
+        when('/stories', {
             templateUrl: 'app/Story/story.html',
             controller: 'StoryController',
             controllerAs : 'StoryCtrl'
