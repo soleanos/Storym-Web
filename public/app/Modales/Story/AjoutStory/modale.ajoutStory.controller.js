@@ -18,7 +18,8 @@
             $scope.add = function(newStory){
                 if(newStory){
                     ServiceStory.createStory(newStory)
-                    //$route.reload();
+                    $route.reload();
+                    ngDialog.close()
                 }
             };
 

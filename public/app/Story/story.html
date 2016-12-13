@@ -6,7 +6,8 @@
 
         <!--<h1> Liste de l'ensemble des storys </h1>-->
 
-        <button  ng-click="openAddModale()">Ajouter une story</button>
+        <!--<button  ng-click="openAddModale()">Ajouter une story</button>-->
+        <i class="material-icons" ng-click="openAddModale()" >add</i>
 
         <div class="table-responsive-vertical shadow-z-1">
 
@@ -30,8 +31,8 @@
                             </div>
                         </td>
                         <td >
-                            <button  ng-click="openUpdateModale(story)">Modifier</button>
-                            <button  ng-click="DeleteStory($index)">Supprimer</button>
+                            <i class="material-icons" ng-click="DeleteStory(story)" >delete</i>
+                            <i class="material-icons" ng-click="openUpdateModale(story)">create</i>
                         </td>
                    </tr>
                 </tbody>

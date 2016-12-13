@@ -10,21 +10,27 @@
 
     function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_) {
 
-        $rootScope.currentNavItem = 'storys';
+        updateAllStory()
 
-        ServiceStory.getStories().then(function (allStories) {
-            $scope.stories = allStories;
-        })
+        function updateAllStory(){
+            ServiceStory.getStories().then(function (allStories) {
+                $scope.stories = allStories;
+            })
+        }
 
         $scope.openUpdateModale = function (story) {
            $rootScope.dialog = ngDialog.open({ template: 'templateUpdate' });
            $rootScope.selectedStory = story;
         };
 
-
         $scope.openAddModale = function () {
            $rootScope.dialog = ngDialog.open({ template: 'templateAdd' });
         };
+
+        $scope.DeleteStory = function (story) {
+            ServiceStory.removeStory(story)
+            updateAllStory()
+        }
 
     }
 })();
