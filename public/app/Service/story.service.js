@@ -61,6 +61,7 @@
 
                         chapter.then(function(data) {
                                 chapterList.push(data)
+
                         });
                     }
                      response.chapters = chapterList;

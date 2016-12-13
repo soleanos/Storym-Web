@@ -15,7 +15,8 @@
         function  _getApiUrl() {
             var prodUrl  = "http://90.105.169.31:666";
             var devUrl  = "localhost:2403";
-            return prodUrl;
+            var devLocalURL = "http://192.168.1.13:2403"
+            return devLocalURL;
         }
 
     }
