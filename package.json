@@ -1,6 +1,6 @@
 {
   "name": "Storym",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Application de création d'histoires intéractives",
   "main": "index.js",
   "scripts": {
