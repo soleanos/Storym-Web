@@ -6,9 +6,9 @@
         .module('Storym')
         .controller('modaleModifStoryController', modaleModifStoryController);
 
-    modaleModifStoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter','_'];
+    modaleModifStoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter','_','$route'];
 
-    function modaleModifStoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_) {
+    function modaleModifStoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_,$route) {
             $scope.initModalUpdate = function(){
                 $scope.addChapterClick == false;
 
@@ -72,18 +72,21 @@
                         if (nbChapterExist == 0) {
                             $scope.storyToUpdate.chapters.push(chapterSelected)
                         } else {
-                            console.log("Ce  chapitre existe déja")
+                            console.log("Ce chapitre existe déja")
                         }
                     }
 
                     updateAllChapters()
                 }
 
+                $scope.updateChaptersSelected = function(){
+                    console.log("Modification select")
+                }
 
-
-                
-                $scope.updateStory = function(){
-                    //console.log("Selection d'un chapitre");
+                $scope.updateStory = function () {
+                    ServiceStory.updateStory($scope.storyToUpdate)
+                    ngDialog.close()
+                    $route.reload();
                 }
 
             };

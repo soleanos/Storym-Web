@@ -32,7 +32,7 @@
                         <tbody >
                         <tr ng-repeat="chapter in storyToUpdate.chapters">
                             <td >{{chapter.title}}</td>
-                            <td>{{chapteur.index}}</td>
+                            <td>{{chapter.index}}</td>
 
                             <td >
                                 <button  ng-click="openUpdateModale(story)">Modifier</button>
@@ -65,7 +65,7 @@
                 <!--ng-show="checked"-->
                 <!--multipleSelect = {{data.multipleSelect}}<br/>-->
 
-                <md-button class="md-raised md-primary" ng-click="connect()">modifier</md-button>
+                <md-button class="md-raised md-primary" ng-click="updateStory()">modifier</md-button>
 
             </div>
         </div>
