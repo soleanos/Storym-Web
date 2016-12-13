@@ -24,14 +24,14 @@
         ])
         .config(config)
 
-    config.$inject = ['$routeProvider','$compileProvider','$httpProvider'];
+    config.$inject = ['$routeProvider','$compileProvider','$httpProvider','$locationProvider'];
 
-    function config($routeProvider,$compileProvider,$httpProvider) {
+    function config($routeProvider,$compileProvider,$httpProvider,$locationProvider) {
         $routeProvider.otherwise({
             redirectTo: '/home'
         });
        delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
+        $locationProvider.hashPrefix('');
     }
 })();
 
