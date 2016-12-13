@@ -4,9 +4,9 @@
         .module('Storym')
         .factory('ServicePage',ServicePage);
 
-   ServicePage.$inject = ['$resource','$rootScope'];
+   ServicePage.$inject = ['$resource','$rootScope','ConfigService'];
 
-    function ServicePage($resource, $rootScope) {
+    function ServicePage($resource, $rootScope,ConfigService) {
 
         return {
             getPage : getPage,
@@ -15,6 +15,8 @@
             createPage : createPage,
             removePage : removePage
         };
+
+        var urlApi = ConfigService.getApiUrl()
 
         function  getPages() {
             return $resource("http://localhost:2403/chapter").query();

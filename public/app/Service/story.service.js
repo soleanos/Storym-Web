@@ -5,22 +5,23 @@
         .module('Storym')
         .factory('ServiceStory',ServiceStory);
 
-    ServiceStory.$inject = ['$resource','$rootScope','$http','ServiceChapter'];
+    ServiceStory.$inject = ['$resource','$rootScope','$http','ServiceChapter','ConfigService'];
 
-    function ServiceStory($resource, $rootScope,$http,ServiceChapter) {
+    function ServiceStory($resource, $rootScope,$http,ServiceChapter,ConfigService) {
 
         return {
             getStory : getStory,
             getStories : getStories,
             updateStory : updateStory,
             createStory : createStory,
-            removeStory : removeStory,
+            removeStory : removeStory
         };
 
         function getStories() {
+
             // Get all storys without casted chapters ( only id )
 
-            var getBasicStories = $http.get('http://90.105.169.31:666/story').then(
+            var getBasicStories = $http.get(ConfigService.getApiUrl()+'/story').then(
                 function successCallback(response) {
                 return response;
             }, function errorCallback(error) {
@@ -50,7 +51,7 @@
         }
 
         function getStory(id) {
-            return $http.get("http://90.105.169.31:666/story/"+id).success(
+            return $http.get(ConfigService.getApiUrl()+"/story/"+id).success(
                  function successCallback(response) {
                     var chapterList =  [];
                     for(var indiceChapter in response.chapters){
@@ -69,16 +70,16 @@
         }
 
         function updateStory(story) {
-                $resource('http://90.105.169.31:666/story/'+story.id).save(story);
+                $resource(ConfigService.getApiUrl()+'/story/'+story.id).save(story);
         }
 
         function createStory(story) {
-           $resource('http://90.105.169.31:666/story').save(story);
+           $resource(ConfigService.getApiUrl()+'/story').save(story);
         }
 
         function removeStory(story) {
-            $resource('http://90.105.169.31:666/story/'+story.id).remove();
+            $resource(ConfigService.getApiUrl()+'/story/'+story.id).remove();
         }
-        
+
     }
 })();

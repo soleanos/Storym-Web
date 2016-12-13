@@ -1,13 +1,9 @@
-<div ng-include src="'app/Component/header.html'" ></div>
-<!--<div ng-include src="'app/Modales/AjoutChapter/modale.ajoutChapter.html'" ></div>-->
-<!--<div ng-include src="'app/Modales/ModificationChapter/modale.modificationChapter.html'" ></div>-->
-
+<!--<div ng-include src="'app/Modales/Chapter/AjoutChapter/modale.ajoutChapter.html'" ></div>-->
+<!--<div ng-include src="'app/Modales/Chapter/ModificationChapter/modale.modificationChapter.html'" ></div>-->
 
 <div id="chapters">
 
-    <h1> Liste de l'ensemble des chapters </h1>
-
-    <button  ng-click="openAddModale()">Ajouter une chapter</button>
+    <i class="material-icons" ng-click="openAddModale()" >add</i>
 
     <div class="table-responsive-vertical shadow-z-1">
 
@@ -16,29 +12,26 @@
             <tr>
 
                 <th>Titre</th>
-                <th>Note</th>
-                <th>Chapitres</th>
+                <th>Index</th>
+                <th>Pages</th>
                 <th>Actions</th>
             </tr>
             </thead>
-            <tbody >
-            <tr ng-repeat="chapter in chapters">
+            <tbody ng-repeat="chapter in chapters">
+            <tr>
                 <td >{{chapter.title}}</td>
-                <td>{{chapter.note}}</td>
+                <td>{{chapter.index}}</td>
                 <td>
-                    <div ng-repeat="chapter in chapter.chapters ">
-                        {{chapter.title}}
+                    <div ng-repeat="page in chapter.pages ">
+                        {{page.index}}
                     </div>
                 </td>
                 <td >
-                    <button  ng-click="openUpdateModale($index)">Modifier</button>
-                    <button  ng-click="DeleteChapter($index)">Supprimer</button>
+                    <i class="material-icons" ng-click="DeleteChapter(chapter)" >delete</i>
+                    <i class="material-icons" ng-click="openUpdateModale(chapter)">create</i>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-
-
-
 </div>
