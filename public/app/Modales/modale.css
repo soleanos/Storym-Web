@@ -1,0 +1,13 @@
+.md-button.storym-button-valid {
+    color:white;
+    background-color: black !important;
+}
+.md-button.storym-button {
+    color:white;
+    background-color: #FF4081 !important;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+}

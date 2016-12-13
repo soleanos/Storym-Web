@@ -16,7 +16,7 @@
                     <input type="text" ng-model="storyToUpdate.note">
                 </md-input-container>
 
-                <md-button ng-click="showAddChapter()" class="md-primary">Ajouter un chapitre</md-button>
+                <md-button ng-click="showAddChapter()" class="md-primary storym-button">Ajouter un chapitre</md-button>
 
                 <div class="table-responsive-vertical shadow-z-1">
 
@@ -48,24 +48,15 @@
 
                     <md-input-container >
                         <select ng-options="chapter as chapter.title for chapter in allChapters "
-                                name="multipleSelect" id="multipleSelect" ng-model="data.chaptersSelected" multiple ng-change="updateStory()" >
+                                name="multipleSelect" id="multipleSelect" ng-model="data.chaptersSelected" multiple ng-change="updateChaptersSelected()" >
                         </select>
                     </md-input-container>
 
-                    <md-button class="md-raised md-primary" ng-click="addToStoryToUpade()">ajouter</md-button>
-
-
-                    <!--<md-input-container>-->
-                        <!--<md-select ng-model="selectedChapters" placeholder="Select a state"  >-->
-                            <!--<md-option ng-value="id" ng-repeat="chapter in allChapters">{{ chapter.title }}</md-option>-->
-                        <!--</md-select>-->
-                    <!--</md-input-container>-->
+                    <md-button class="md-raised storym-button " ng-click="addToStoryToUpade()">ajouter</md-button>
 
                 </ng-show>
-                <!--ng-show="checked"-->
-                <!--multipleSelect = {{data.multipleSelect}}<br/>-->
 
-                <md-button class="md-raised md-primary" ng-click="updateStory()">modifier</md-button>
+                <md-button class="md-raised storym-button-valid" ng-click="updateStory()">modifier</md-button>
 
             </div>
         </div>

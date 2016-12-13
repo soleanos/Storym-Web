@@ -4,9 +4,9 @@
         .module('Storym')
         .factory('ServiceChapter',ServiceChapter);
 
-    ServiceChapter.$inject = ['$resource','$rootScope','$http'];
+    ServiceChapter.$inject = ['$resource','$rootScope','$http','ConfigService'];
 
-    function ServiceChapter($resource, $rootScope,$http) {
+    function ServiceChapter($resource, $rootScope,$http,ConfigService) {
 
         return {
             getChapter : getChapter,
