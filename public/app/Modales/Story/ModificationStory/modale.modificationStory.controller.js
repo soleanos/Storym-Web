@@ -19,9 +19,7 @@
                 $scope.addChapterClick = false;
 
                  function updateAllChapters(){
-
                     ServiceChapter.getChapters().success(function (allChapters) {
-                        //$scope.allChapters = allChapters;
                         var filtered = allChapters;
 
                         for (var indiceCapterInitial  in $rootScope.selectedStory.chapters) {
@@ -32,15 +30,17 @@
                                 return item.id !== chapitreInitial.id
                             });
                         }
-
                         $scope.allChapters = filtered
                     });
-
                 }
 
 
                 $scope.showAddChapter = function(){
-                    $scope.addChapterClick = !$scope.addChapterClick
+                    if($scope.allChapters.length != 0 ) {
+                        $scope.addChapterClick = !$scope.addChapterClick
+                    }else{
+                        alert("Pas d'autres chapitres à ajouter")
+                    }
                 };
 
                 $scope.deleteChapter = function (story,chapter) {
@@ -76,7 +76,7 @@
                 };
 
                 $scope.updateChaptersSelected = function(){
-                    console.log("Modification select")
+                    if($scope.allChapters.length == 0 ){ $scope.addChapterClick = false; }
                 };
 
                 $scope.updateStory = function () {
