@@ -11,49 +11,41 @@
                     <input type="text" ng-model="storyToUpdate.title">
                 </md-input-container>
 
-                <md-input-container >
-                    <label>Note</label>
-                    <input type="text" ng-model="storyToUpdate.note">
-                </md-input-container>
-
                 <md-button ng-click="showAddChapter()" class="md-primary storym-button">Ajouter un chapitre</md-button>
 
-                <div class="table-responsive-vertical shadow-z-1">
+                <ng-show ng-show="storyToUpdate.chapters.length > 0">
+                    <div class="table-responsive-vertical shadow-z-1">
+                        <table id="table" class="table table-hover table-mc-light-blue">
+                            <thead>
+                            <tr>
+                                <th>Titre</th>
+                                <th>Index</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody >
+                            <tr ng-repeat="chapter in storyToUpdate.chapters">
+                                <td >{{chapter.title}}</td>
+                                <td>{{chapter.index}}</td>
 
-                    <table id="table" class="table table-hover table-mc-light-blue">
-                        <thead>
-                        <tr>
-
-                            <th>Titre</th>
-                            <th>Index</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody >
-                        <tr ng-repeat="chapter in storyToUpdate.chapters">
-                            <td >{{chapter.title}}</td>
-                            <td>{{chapter.index}}</td>
-
-                            <td >
-                                <button  ng-click="openUpdateModale(story)">Modifier</button>
-                                <button  ng-click="deleteChapter(storyToUpdate,chapter)">Supprimer</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                <td >
+                                    <button  ng-click="openUpdateModale(story)">Modifier</button>
+                                    <button  ng-click="deleteChapter(storyToUpdate,chapter)">Supprimer</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ng-show>
 
                 <ng-show ng-show="addChapterClick">
                     <label for="multipleSelect"> Ajouter chapitre(s) </label>
-
                     <md-input-container >
                         <select ng-options="chapter as chapter.title for chapter in allChapters "
                                 name="multipleSelect" id="multipleSelect" ng-model="data.chaptersSelected" multiple ng-change="updateChaptersSelected()" >
                         </select>
                     </md-input-container>
-
                     <md-button class="md-raised storym-button " ng-click="addToStoryToUpade()">ajouter</md-button>
-
                 </ng-show>
 
                 <md-button class="md-raised storym-button-valid" ng-click="updateStory()">modifier</md-button>
