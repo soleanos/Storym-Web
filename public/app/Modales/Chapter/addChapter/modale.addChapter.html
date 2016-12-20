@@ -1,0 +1,17 @@
+<script type="text/ng-template" id="templateAddChapter">
+    <div id="target"  ng-init="initModalAdd()" ng-controller="modaleAjoutChapterController" >
+
+        <div layout="row" layout-align="center center">
+            <div layout="column">
+                <h1>Créer une nouveau chapitre</h1>
+
+                <md-input-container>
+                    <input placeholder="Titre" type="text" ng-model="newChapter.title">
+                </md-input-container>
+
+                <md-button class="md-raised storym-button-valid" ng-click="add(newChapter)">Créer</md-button>
+            </div>
+        </div>
+
+    </div>
+</script>

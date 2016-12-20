@@ -1,12 +1,12 @@
 (function () {
- 'use strict';
+    'use strict';
     angular
         .module('Storym')
         .factory('ServicePage',ServicePage);
 
-   ServicePage.$inject = ['$resource','$rootScope','ConfigService'];
+    ServicePage.$inject = ['$resource','$rootScope','$http','ConfigService'];
 
-    function ServicePage($resource, $rootScope,ConfigService) {
+    function ServicePage($resource, $rootScope,$http,ConfigService) {
 
         return {
             getPage : getPage,
@@ -16,26 +16,24 @@
             removePage : removePage
         };
 
-        var urlApi = ConfigService.getApiUrl()
-
-        function  getPages() {
-            return $resource("http://localhost:2403/chapter").query();
+        function getPages() {
+            return $http.get(ConfigService.getApiUrl()+'/page')
         }
 
-        function getPage(lienPage) {
-            return $resource(lienPage).get();
+        function getPage(id) {
+            return $resource(ConfigService.getApiUrl()+"/page/"+id).get();
         }
 
         function updatePage(page) {
-            $resource('http://localhost:2403/chapter').save(personne);
+            $resource(ConfigService.getApiUrl()+'/page/'+page.id).save(page);
         }
 
         function createPage(page) {
-            $resource('http://localhost:2403/chapter').save(user);
+            $resource(ConfigService.getApiUrl()+'/page').save(page);
         }
 
         function removePage(page) {
-            $resource('http://localhost:2403/chapter').remove(personne);
+            $resource(ConfigService.getApiUrl()+'/page/'+page.id).remove();
         }
 
     }
