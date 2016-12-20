@@ -13,17 +13,8 @@
             getChoices : getChoices,
             updateChoice : updateChoice,
             createChoice : createChoice,
-            removeChoice : removeChoice,
-            castPageChoice : castPageChoice
+            removeChoice : removeChoice
         };
-
-        // castPageChoice take an id parameter en return choice object
-
-        function castPageChoice(idChapitre) {
-            return getChoice(idChapitre).$promise.then(function (choice) {
-                return choice;
-            });
-        }
 
         function getChoices() {
             return $http.get(ConfigService.getApiUrl()+'/choice')

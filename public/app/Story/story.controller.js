@@ -6,11 +6,22 @@
         .module('Storym')
         .controller('StoryController', StoryController);
 
-    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter','_'];
+    StoryController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceStory','ServiceChapter','_','$route'];
 
-    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_) {
+    function StoryController($scope, $location ,$http, $rootScope, ngDialog,ServiceStory,ServiceChapter,_,$route) {
 
-        updateAllStory()
+        $rootScope.reload = false;
+        updateAllStory();
+
+        $rootScope.$watch('reload', function(newValue, oldValue) {
+            if(newValue == true){
+                setTimeout(function(){
+                    updateAllStory();
+                    $rootScope.reload = false;
+                    $route.reload();
+                }, 100);
+            }
+        });
 
         function updateAllStory(){
             ServiceStory.getStories().then(function (allStories) {
@@ -28,10 +39,9 @@
         };
 
         $scope.DeleteStory = function (story) {
-            ServiceStory.removeStory(story)
-            updateAllStory()
+            ServiceStory.removeStory(story);
+            $rootScope.reload = true;
         }
-
     }
 })();
 

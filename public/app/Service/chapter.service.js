@@ -16,9 +16,6 @@
             removeChapter : removeChapter
         };
 
-        // castStoryChapter take an id parameter en return chapter object
-
-
         function getChapters() {
             return $http.get(ConfigService.getApiUrl()+'/chapter')
         }

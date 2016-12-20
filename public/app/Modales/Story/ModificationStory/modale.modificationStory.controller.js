@@ -92,7 +92,8 @@
 
                     ServiceStory.updateStory($scope.storyToUpdate);
                     ngDialog.close();
-                    $route.reload();
+                    $rootScope.reload = true;
+                    // $route.reload();
                 }
             };
     }
