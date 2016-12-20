@@ -13,17 +13,11 @@
             getChapters : getChapters,
             updateChapter : updateChapter,
             createChapter : createChapter,
-            removeChapter : removeChapter,
-            castStoryChapter : castStoryChapter
+            removeChapter : removeChapter
         };
 
         // castStoryChapter take an id parameter en return chapter object
 
-        function castStoryChapter(idChapitre) {
-               return getChapter(idChapitre).$promise.then(function (chapter) {
-                    return chapter;
-               });
-        }
 
         function getChapters() {
             return $http.get(ConfigService.getApiUrl()+'/chapter')

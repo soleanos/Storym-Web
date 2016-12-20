@@ -14,7 +14,7 @@
 
         function updateAllStory(){
             ServiceStory.getStories().then(function (allStories) {
-                $scope.stories = allStories;
+                $scope.stories = allStories.data;
             })
         }
 
