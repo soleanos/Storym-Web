@@ -20,8 +20,6 @@
 
                  function updateAllPages(){
                     ServicePage.getPages().success(function (allPages) {
-                        console.log(allPages)
-
                         var filtered = allPages;
 
                         for (var indiceCapterInitial  in $rootScope.selectedChapter.pages) {
@@ -35,6 +33,7 @@
                         $scope.allPages = filtered
                     });
                 }
+
 
 
                 $scope.showAddPage = function(){
@@ -54,9 +53,8 @@
                     updateAllPages()
                 };
 
-                $scope.addToChapterToUpade = function(chapter) {
+                $scope.addToChapterToUdpade = function(chapter) {
                     for (var indicePageSelected in $scope.data.pagesSelected) {
-
                         var nbPageExist = 0;
 
                         var pageSelected = $scope.data.pagesSelected[indicePageSelected];

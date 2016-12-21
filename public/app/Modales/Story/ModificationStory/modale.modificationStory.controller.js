@@ -20,8 +20,6 @@
 
                  function updateAllChapters(){
                     ServiceChapter.getChapters().success(function (allChapters) {
-                        console.log(allChapters)
-
                         var filtered = allChapters;
 
                         for (var indiceCapterInitial  in $rootScope.selectedStory.chapters) {

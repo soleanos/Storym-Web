@@ -34,14 +34,14 @@
                     </div>
                 </ng-show>
 
-                <ng-show ng-show="addChapterClick">
-                    <label for="multipleSelect"> Ajouter chapitre(s) </label>
+                <ng-show ng-show="addPageClick">
+                    <label for="multipleSelect"> Ajouter page </label>
                     <md-input-container >
-                        <select ng-options="page as page.title for page in allPages "
+                        <select ng-options="page as page.index for page in allPages "
                                 name="multipleSelect" id="multipleSelect" ng-model="data.pagesSelected" multiple ng-change="updatePagesSelected()" >
                         </select>
                     </md-input-container>
-                    <md-button class="md-raised storym-button " ng-click="addToChaptersToUpade()">ajouter</md-button>
+                    <md-button class="md-raised storym-button " ng-click="addToChapterToUdpade()">ajouter</md-button>
                 </ng-show>
 
                 <md-button class="md-raised storym-button-valid" ng-click="updateChapter()">modifier</md-button>
