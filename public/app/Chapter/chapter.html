@@ -12,7 +12,7 @@
             <tr>
 
                 <th>Titre</th>
-                <th>Index</th>
+                <th>Histoire</th>
                 <th>Pages</th>
                 <th>Actions</th>
             </tr>
@@ -20,7 +20,7 @@
             <tbody ng-repeat="chapter in chapters">
             <tr>
                 <td >{{chapter.title}}</td>
-                <td>{{chapter.index}}</td>
+                <td>{{chapter.storyLinked.title}}</td>
                 <td>
                     <div ng-repeat="page in chapter.pages ">
                         {{page.index}}

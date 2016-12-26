@@ -12,7 +12,10 @@
 
                 <md-button ng-click="showAddPage()" class="md-primary storym-button">Ajouter une page</md-button>
 
-                <ng-show ng-show="chapterToUpdate.pages.length > 0">
+                <md-button ng-click="showAddToStory()" class="md-primary storym-button">Lier à une histoire</md-button>
+
+
+                <ng-show ng-show="chapterToUpdate.pages">
                     <div class="table-responsive-vertical shadow-z-1">
                         <table id="table" class="table table-hover table-mc-light-blue">
                             <thead>
@@ -42,6 +45,20 @@
                         </select>
                     </md-input-container>
                     <md-button class="md-raised storym-button " ng-click="addToChapterToUdpade()">ajouter</md-button>
+                </ng-show>
+
+                <ng-show ng-show="addStoryLinkedClick">
+                    <label for="multipleSelect"> Lier à  </label>
+                    <md-input-container >
+                        <select ng-options="story as story.title for story in allStories "
+                                name="multipleSelect" id="multipleSelectStory" ng-model="data.storySelected" ng-change="updateStorySelected()" >
+                        </select>
+                    </md-input-container>
+                    <md-button class="md-raised storym-button " ng-click="addToStoryChapterToUdpade()">Lier</md-button>
+                </ng-show>
+
+                <ng-show ng-show="chapterToUpdate.storyLinked">
+                    <p> Lié à l'histoire :  {{chapterToUpdate.storyLinked.title || chapterToUpdate.storyLinked}}
                 </ng-show>
 
                 <md-button class="md-raised storym-button-valid" ng-click="updateChapter()">modifier</md-button>

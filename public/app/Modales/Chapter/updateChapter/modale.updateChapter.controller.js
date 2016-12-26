@@ -6,17 +6,19 @@
         .module('Storym')
         .controller('modaleModifChapterController', modaleModifChapterController);
 
-    modaleModifChapterController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceChapter','ServicePage','_','$route'];
+    modaleModifChapterController.$inject = ['$scope', '$location', '$http', '$rootScope', 'ngDialog','ServiceChapter','ServicePage','ServiceStory','_','$route'];
 
-    function modaleModifChapterController($scope, $location ,$http, $rootScope, ngDialog,ServiceChapter,ServicePage,_,$route) {
+    function modaleModifChapterController($scope, $location ,$http, $rootScope, ngDialog,ServiceChapter,ServicePage,ServiceStory,_,$route) {
             $scope.initModalUpdate = function(){
                 $scope.addPageClick == false;
 
                 $scope.chapterToUpdate = $rootScope.selectedChapter;
 
-                updateAllPages()
+                updateAllPages();
+                updateAllStories();
 
                 $scope.addPageClick = false;
+                $scope.addStoryLinkedClick = false;
 
                  function updateAllPages(){
                     ServicePage.getPages().success(function (allPages) {
@@ -24,7 +26,7 @@
 
                         for (var indiceCapterInitial  in $rootScope.selectedChapter.pages) {
 
-                            var chapitreInitial = $rootScope.selectedChapter.pages[indiceCapterInitial]
+                            var chapitreInitial = $rootScope.selectedChapter.pages[indiceCapterInitial];
 
                             filtered = _(filtered).filter(function (item) {
                                 return item.id !== chapitreInitial.id
@@ -34,11 +36,24 @@
                     });
                 }
 
+                function updateAllStories(){
+                    ServiceStory.getStories().then(function (allStories) {
+                        $scope.allStories= allStories.data
+                    });
+                }
 
 
                 $scope.showAddPage = function(){
                     if($scope.allPages.length != 0 ) {
                         $scope.addPageClick = !$scope.addPageClick
+                    }else{
+                        alert("Pas d'autres chapitres à ajouter")
+                    }
+                };
+
+                $scope.showAddToStory = function(){
+                    if($scope.allStories.length != 0 ) {
+                        $scope.addStoryLinkedClick = !$scope.addStoryLinkedClick
                     }else{
                         alert("Pas d'autres chapitres à ajouter")
                     }
@@ -54,6 +69,7 @@
                 };
 
                 $scope.addToChapterToUdpade = function(chapter) {
+                    console.log($scope.chapterToUpdate.pages.length)
                     for (var indicePageSelected in $scope.data.pagesSelected) {
                         var nbPageExist = 0;
 
@@ -73,6 +89,10 @@
                         }
                     }
                     updateAllPages()
+                };
+
+                $scope.addToStoryChapterToUdpade = function(story) {
+                    $scope.chapterToUpdate.storyLinked = $scope.data.storySelected.id;
                 };
 
                 $scope.updatePagesSelected = function(){
