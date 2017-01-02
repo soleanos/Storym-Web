@@ -1,0 +1,38 @@
+<!--<div ng-include src="'app/Modales/Page/addPage/modale.addPage.html'" ></div>-->
+<!--<div ng-include src="'app/Modales/Page/updatePage/modale.updatePage.html'" ></div>-->
+
+<div id="pages">
+
+    <i class="material-icons" ng-click="openAddModale()" >add</i>
+
+    <div class="table-responsive-vertical shadow-z-1">
+
+        <table id="table" class="table table-hover table-mc-light-blue">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Liée au chapitre</th>
+                    <th>Text</th>
+                    <th>Choix</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="page in pages">
+                <tr>
+                    <td >{{page.index}}</td>
+                    <td>{{page.ChapterLinked.title}}</td>
+                    <td>{{page.text | limitTo : 45}} ...</td>
+                    <td>
+                        <div ng-repeat="choice in page.choices ">
+                            {{choice.libelle}}
+                        </div>
+                    </td>
+                    <td>
+                        <i class="material-icons" ng-click="DeletePage(page)" >delete</i>
+                        <i class="material-icons" ng-click="openUpdateModale(page)">create</i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
