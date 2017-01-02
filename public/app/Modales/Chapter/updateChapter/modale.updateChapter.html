@@ -57,11 +57,13 @@
                     <md-button class="md-raised storym-button " ng-click="addToStoryChapterToUdpade()">Lier</md-button>
                 </ng-show>
 
+                <md-button class="md-raised storym-button-valid" ng-click="updateChapter()">modifier</md-button>
+
+
                 <ng-show ng-show="chapterToUpdate.storyLinked">
                     <p> Lié à l'histoire :  {{chapterToUpdate.storyLinked.title || chapterToUpdate.storyLinked}}
                 </ng-show>
 
-                <md-button class="md-raised storym-button-valid" ng-click="updateChapter()">modifier</md-button>
 
             </div>
         </div>
