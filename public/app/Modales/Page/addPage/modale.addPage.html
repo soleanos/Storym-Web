@@ -1,0 +1,39 @@
+<script type="text/ng-template" id="templateAddPage">
+    <div id="target"  ng-init="initModalAdd()" ng-controller="modaleAjoutPageController" >
+
+        <div layout="row" layout-align="center center">
+            <div layout="column">
+                <h1>Créer une nouvelle page</h1>
+
+                <md-input-container>
+                    <textarea name="textarea" rows="6" ng-model="newPage.text" ></textarea>
+                </md-input-container>
+
+                <label for="selectChoice1"> Choix 1 :</label>
+                <md-input-container >
+                    <select ng-options="choice.id as choice.label for choice in allChoices "
+                            name="multipleSelect" id="selectChoice1" ng-model="choice1" >
+                    </select>
+                </md-input-container>
+
+                <label for="selectChoice2"> Choix 2 : </label>
+                <md-input-container >
+                    <select ng-options="choice.id as choice.label for choice in allChoices "
+                            name="multipleSelect" id="selectChoice2" ng-model="choice2" >
+                    </select>
+                </md-input-container>
+
+                <label for="selectChapter"> Lié au chapitre :  </label>
+                <md-input-container >
+                    <select ng-options="chapter.id as chapter.title for chapter in allChapters "
+                            name="multipleSelect" id="selectChapter" ng-model="newPage.chapterLinked" >
+                    </select>
+                </md-input-container>
+
+
+                <md-button class="md-raised storym-button-valid" ng-click="add(newPage)">Créer</md-button>
+            </div>
+        </div>
+
+    </div>
+</script>

@@ -1,4 +1,4 @@
-<!--<div ng-include src="'app/Modales/Page/addPage/modale.addPage.html'" ></div>-->
+<div ng-include src="'app/Modales/Page/addPage/modale.addPage.html'" ></div>
 <!--<div ng-include src="'app/Modales/Page/updatePage/modale.updatePage.html'" ></div>-->
 
 <div id="pages">
@@ -20,7 +20,7 @@
             <tbody ng-repeat="page in pages">
                 <tr>
                     <td >{{page.index}}</td>
-                    <td>{{page.ChapterLinked.title}}</td>
+                    <td>{{page.chapterLinked}}</td>
                     <td>{{page.text | limitTo : 45}} ...</td>
                     <td>
                         <div ng-repeat="choice in page.choices ">
