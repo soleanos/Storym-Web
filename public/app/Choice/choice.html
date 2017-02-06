@@ -1,0 +1,31 @@
+<div ng-include src="'app/Modales/Choice/addChoice/modale.addChoice.html'" ></div>
+<div ng-include src="'app/Modales/Choice/updateChoice/modale.updateChoice.html'" ></div>
+
+<div id="choices">
+
+    <i class="material-icons" ng-click="openAddModale()" >add</i>
+
+    <div class="table-responsive-vertical shadow-z-1">
+
+        <table id="table" class="table table-hover table-mc-light-blue">
+            <thead>
+            <tr>
+                <th>Libellé du choix</th>
+                <th>Page liée</th>
+                <th>Page suivante</th>
+            </tr>
+            </thead>
+            <tbody ng-repeat="choice in choices">
+            <tr>
+                <td >{{choice.label}}</td>
+                <td>{{choice.page}}</td>
+                <td>{{choice.nextPage}}</td>
+                <td >
+                    <i class="material-icons" ng-click="DeleteChoice(choice)" >delete</i>
+                    <i class="material-icons" ng-click="openUpdateModale(choice)">create</i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
