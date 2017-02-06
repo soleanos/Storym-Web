@@ -9,6 +9,13 @@
                     <input placeholder="Titre" type="text" ng-model="newChapter.title">
                 </md-input-container>
 
+                <label for="selectStory"> Lié à l'histoire :  </label>
+                <md-input-container >
+                    <select ng-options="story.id as story.title for story in allStories "
+                             id="selectStory" ng-model="newChapter.storyLinked" >
+                    </select>
+                </md-input-container>
+
                 <md-button class="md-raised storym-button-valid" ng-click="add(newChapter)">Créer</md-button>
             </div>
         </div>
