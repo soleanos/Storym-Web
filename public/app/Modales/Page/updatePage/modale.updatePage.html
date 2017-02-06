@@ -1,0 +1,39 @@
+<script type="text/ng-template" id="templateUpdatePage">
+    <div id="target"  ng-init="initModalUpdate" ng-controller="modaleUpdatePageController" >
+
+        <div layout="row" layout-align="center center">
+            <div layout="column">
+                <h1>Modifier la page</h1>
+
+                <md-input-container>
+                    <textarea name="textarea" rows="6" ng-model="pageToUpdate.text" ></textarea>
+                </md-input-container>
+
+                <label for="selectChoice1"> Choix 1 :</label>
+                <md-input-container >
+                    <select ng-options="choice.id as choice.label for choice in allChoices "
+                            name="multipleSelect" id="selectChoice1" ng-model="pageToUpdate.choice1" >
+                    </select>
+                </md-input-container>
+
+                <label for="selectChoice2"> Choix 2 : </label>
+                <md-input-container >
+                    <select ng-options="choice.id as choice.label for choice in allChoices "
+                            name="multipleSelect" id="selectChoice2" ng-model="pageToUpdate.choice2" >
+                    </select>
+                </md-input-container>
+
+                <label for="selectChapter"> Lié au chapitre :  </label>
+                <md-input-container >
+                    <select ng-options="chapter.id as chapter.title for chapter in allChapters "
+                            name="multipleSelect" id="selectChapter" ng-model="pageToUpdate.chapterLinked" >
+                    </select>
+                </md-input-container>
+
+
+                <md-button class="md-raised storym-button-valid" ng-click="update(pageToUpdate)">Modifier</md-button>
+            </div>
+        </div>
+
+    </div>
+</script>

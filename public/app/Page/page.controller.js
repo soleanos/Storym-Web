@@ -28,17 +28,17 @@
             })
         }
 
-        $scope.openUpdateModale = function (story) {
+        $scope.openUpdateModale = function (page) {
             $rootScope.dialog = ngDialog.open({ template: 'templateUpdatePage' });
-            $rootScope.selectedPage = story;
+            $rootScope.selectedPage = page;
         };
 
         $scope.openAddModale = function () {
             $rootScope.dialog = ngDialog.open({ template: 'templateAddPage' });
         };
 
-        $scope.DeletePage = function (story) {
-            ServicePage.removePage(story);
+        $scope.DeletePage = function (page) {
+            ServicePage.removePage(page);
             $rootScope.reload = true;
         }
     }
