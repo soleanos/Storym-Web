@@ -13,6 +13,7 @@
         $scope.initModalUpdate = function(){
              $scope.pageToUpdate = $rootScope.selectedPage;
         };
+        $scope.pageToUpdate = $rootScope.selectedPage;
 
         $scope.update = function(pageToUpdate){
             if(pageToUpdate){
