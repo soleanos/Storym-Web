@@ -41,9 +41,14 @@
 
         $scope.showChoice1Field = false;
         $scope.showChoice2Field = false;
+        $scope.showChapterSelect = false;
 
         $scope.clickChoice1 =function(){
             $scope.showChoice1Field =  !$scope.showChoice1Field;
+        };
+
+        $scope.clickChapterSelect =function(){
+            $scope.showChapterSelect =  !$scope.showChapterSelect;
         };
 
         $scope.clickChoice2 =function(){

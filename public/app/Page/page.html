@@ -20,7 +20,7 @@
             <tbody ng-repeat="page in pages">
                 <tr>
                     <td >{{page.index}}</td>
-                    <td>{{page.chapterLinked}}</td>
+                    <td>{{page.chapterLinked.title}}</td>
                     <td>{{page.text | limitTo : 45}} ...</td>
                     <td>
                         <div ng-repeat="choice in page.choices ">

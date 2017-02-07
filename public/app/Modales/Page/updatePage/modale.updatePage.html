@@ -41,12 +41,17 @@
 
                 <div>
                     <label for="selectChapter"> Lié au chapitre :  </label>
+                    {{pageToUpdate.chapterLinked.title}}
+                    <i class="material-icons" ng-click="clickChapterSelect()" >create</i>
+                </div>
+
+                <ng-show ng-show="showChapterSelect">
                     <md-input-container >
                         <select ng-options="chapter.id as chapter.title for chapter in allChapters "
                                 name="multipleSelect" id="selectChapter" ng-model="pageToUpdate.chapterLinked" >
                         </select>
                     </md-input-container>
-                </div>
+                </ng-show>
 
                 <md-button class="md-raised storym-button-valid" ng-click="update(pageToUpdate)">Modifier</md-button>
             </div>
