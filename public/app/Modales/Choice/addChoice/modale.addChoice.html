@@ -1,0 +1,35 @@
+<script type="text/ng-template" id="templateAddChoice">
+    <div id="target"  ng-init="initModalAdd()" ng-controller="modaleAjoutChoiceController" >
+
+        <div layout="row" layout-align="center center">
+            <div layout="column">
+                <h1>Créer un nouveau choix</h1>
+
+                <md-input-container>
+                    <input placeholder="Titre" type="text" ng-model="newChoice.title">
+                </md-input-container>
+
+                <div>
+                    <label for="selectPage"> Lié à : </label>
+                    <md-input-container >
+                        <select ng-options="page.id as (page.text | limitTo : 30)+ ' ...'  for page in allPages "
+                                id="selectPage" ng-model="newChoice.page" >
+                        </select>
+                    </md-input-container>
+                </div>
+
+                <div>
+                    <label for="selectNextPage"> Page suivante : </label>
+                    <md-input-container >
+                        <select ng-options="page.id as (page.text | limitTo : 30)+ ' ...'  for page in allPages "
+                                id="selectNextPage" ng-model="newChoice.nextPage" >
+                        </select>
+                    </md-input-container>
+                </div>
+
+                <md-button class="md-raised pagem-button-valid" ng-click="add(newChoice)">Créer</md-button>
+            </div>
+        </div>
+
+    </div>
+</script>
