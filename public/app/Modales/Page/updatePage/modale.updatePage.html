@@ -9,19 +9,33 @@
                     <textarea name="textarea" rows="6" ng-model="pageToUpdate.text" ></textarea>
                 </md-input-container>
 
-                <label for="selectChoice1"> Choix 1 :</label>
-                <md-input-container >
-                    <select ng-options="choice.id as choice.label for choice in allChoices "
-                            name="multipleSelect" id="selectChoice1" ng-model="pageToUpdate.choice1" >
-                    </select>
-                </md-input-container>
+                <div>
+                    <label for="selectChoice1"> Choix 1 :</label>
+                    {{pageToUpdate.choices[0].label}}
+                    <md-button class="md-raised storym-button " ng-click="clickChoice1()">Modifier choix 1</md-button>
+                </div>
 
-                <label for="selectChoice2"> Choix 2 : </label>
-                <md-input-container >
-                    <select ng-options="choice.id as choice.label for choice in allChoices "
-                            name="multipleSelect" id="selectChoice2" ng-model="pageToUpdate.choice2" >
-                    </select>
-                </md-input-container>
+                <ng-show ng-show="showChoice1Field">
+                    <md-input-container >
+                        <select ng-options="choice.id as choice.label for choice in allChoices "
+                                name="multipleSelect" id="selectChoice1" ng-model="pageToUpdate.choice1" >
+                        </select>
+                    </md-input-container>
+                </ng-show>
+
+
+                <div>
+                    <label for="selectChoice2"> Choix 2 : </label>
+                    {{pageToUpdate.choices[1].label}}
+                    <md-button class="md-raised storym-button " ng-click="clickChoice2()">Modifier choix 2</md-button>
+                </div>
+                <ng-show ng-show="showChoice2Field">
+                    <md-input-container >
+                        <select ng-options="choice.id as choice.label for choice in allChoices "
+                                name="multipleSelect" id="selectChoice2" ng-model="pageToUpdate.choice2" >
+                        </select>
+                    </md-input-container>
+                </ng-show>
 
                 <label for="selectChapter"> Lié au chapitre :  </label>
                 <md-input-container >
