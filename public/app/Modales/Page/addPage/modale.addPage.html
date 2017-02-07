@@ -9,19 +9,30 @@
                     <textarea name="textarea" rows="6" ng-model="newPage.text" ></textarea>
                 </md-input-container>
 
-                <label for="selectChoice1"> Choix 1 :</label>
-                <md-input-container >
-                    <select ng-options="choice.id as choice.label for choice in allChoices "
-                            name="multipleSelect" id="selectChoice1" ng-model="choice1" >
-                    </select>
-                </md-input-container>
+                <label>CHOIX <i class="material-icons pinkButton" ng-click="clickShowCreateChoice()" >add</i>: </label>
 
-                <label for="selectChoice2"> Choix 2 : </label>
-                <md-input-container >
-                    <select ng-options="choice.id as choice.label for choice in allChoices "
-                            name="multipleSelect" id="selectChoice2" ng-model="choice2" >
-                    </select>
-                </md-input-container>
+                <ng-show ng-show="showCreateChoice">
+                    Nouveau choix : <input type="text" ng-model="newChoice.label">
+                    <md-button class="md-raised storym-button " ng-click="createChoice(newChoice)">Créer</md-button>
+                </ng-show>
+
+                <div>
+                    <label for="selectChoice1"> I  - </label>
+                    <md-input-container>
+                        <select ng-options="choice.id as choice.label for choice in allChoices "
+                                name="multipleSelect" id="selectChoice1" ng-model="choice1" >
+                        </select>
+                    </md-input-container>
+                </div>
+
+                <div>
+                    <label for="selectChoice2"> II -  </label>
+                    <md-input-container >
+                        <select ng-options="choice.id as choice.label for choice in allChoices "
+                                name="multipleSelect" id="selectChoice2" ng-model="choice2" >
+                        </select>
+                    </md-input-container>
+                </div>
 
                 <label for="selectChapter"> Lié au chapitre :  </label>
                 <md-input-container >
@@ -29,7 +40,6 @@
                             name="multipleSelect" id="selectChapter" ng-model="newPage.chapterLinked" >
                     </select>
                 </md-input-container>
-
 
                 <md-button class="md-raised storym-button-valid" ng-click="add(newPage)">Créer</md-button>
             </div>

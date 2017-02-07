@@ -24,7 +24,7 @@
                     <td>{{page.text | limitTo : 45}} ...</td>
                     <td>
                         <div ng-repeat="choice in page.choices ">
-                            {{choice.libelle}}
+                            {{choice.label | limitTo : 25 }} ..
                         </div>
                     </td>
                     <td>

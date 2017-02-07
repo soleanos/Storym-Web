@@ -15,3 +15,6 @@ h1{
 .noPaddingModal {
     width:100%;
 }
+.pinkButton {
+    color: #FF4081 !important;
+}
