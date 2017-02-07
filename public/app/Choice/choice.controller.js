@@ -28,9 +28,9 @@
             })
         }
 
-        $scope.openUpdateModale = function (story) {
+        $scope.openUpdateModale = function (choiceSelected) {
             $rootScope.dialog = ngDialog.open({ template: 'templateUpdateChoice' });
-            $rootScope.selectedChoice = story;
+            $rootScope.selectedChoice = choiceSelected;
         };
 
         $scope.openAddModale = function () {

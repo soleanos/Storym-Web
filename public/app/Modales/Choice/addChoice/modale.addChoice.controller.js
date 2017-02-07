@@ -16,15 +16,15 @@
         };
 
         $scope.add = function(newChoice){
-            if(newChoice){
-                if(newChoice.pageLinked) {
-                    ServiceChoice.createChoice(newChoice);
-                    ngDialog.close();
-                    $rootScope.reload = true;
-                }else{
-                    alert("Veuillez selectionner une histoire è_é");
-                }
+
+            if(newChoice.label) {
+                ServiceChoice.createChoice(newChoice);
+                ngDialog.close();
+                $rootScope.reload = true;
+            }else{
+                alert("Veuillez ");
             }
+
         };
 
         ServicePage.getPages().success(function (allpages) {
